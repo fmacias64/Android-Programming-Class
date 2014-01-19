@@ -11,7 +11,7 @@ Handheld systems, such as smartphones and tablets are now the most common way fo
 
 This course will cover the fundamental programming principles, software architecture and user experience considerations underlying handheld software applications and their development environments. To bring these concepts alive, the course will involve in-­depth, hands-‐on examples, implemented in the Android Platform, the fastest growing segment of the handheld system user base. Students will apply these teachings, also using the Android Platform, in laboratory projects and in a large-‐scale semester project. 
 
-*Note: This course is part of a trans-institution course sequence.*
+**Note: This course is part of a trans-institution course sequence.**
 
 This course and two others, led respectively by Drs. Douglas Schmidt and Jules White of Vanderbilt University, have been designed to complement each other. Therefore, some of the programming assignments and the course project for these courses will be coordinated.
 
@@ -102,15 +102,15 @@ The course will also have a complex final project.
 
 # FAQ
 Some Frequently Asked Questions.
-* *When I try to watch the videos before the class start, I get an error message.*
+* **When I try to watch the videos before the class start, I get an error message.**
 
   You can preview some of the videos by pressing the "Preview Lectures" Button at the top of the [course webpage](https://www.coursera.org/admin/courses/android)
 
-* *Is the course broadcast live? I live on the other side of the world from you!*
+* **Is the course broadcast live? I live on the other side of the world from you!**
 
   No. Course lectures are videotaped. Students watch the lectures and do programming assignments and quizzes when it's convenient for them.
 
-* *What are the course objectives?*
+* **What are the course objectives?**
 
   Upon completing this course, students should be able to:
     * Understand the Android platform's organization, patterns and programming mechanisms and be able to  use them effectively to develop their own Android applications.
@@ -118,70 +118,70 @@ Some Frequently Asked Questions.
     * Understand the key forces and constraints acting on handheld devices and know how to accommodate these when designing and building their own Android applications.
     * Know where to find additional sources of information to understand and solve Android-related problems.
 
-* *Will I get a Statement of Accomplishment after completing this class?*
+* **Will I get a Statement of Accomplishment after completing this class?**
 
   Yes. Students who successfully complete the class will receive a Statement of Accomplishment signed by the instructor.
 
-* *What resources will I need for this class?*
+* **What resources will I need for this class?**
 
   For this course, you'll need is an Internet connection, a computer on which to run free Android developer tools, and the time to read, write, and discuss.
 
-* *What is the coolest thing I'll learn if I take this class?*
+* **What is the coolest thing I'll learn if I take this class?**
 
   How to write the software applications that you and half the world are running on your handheld devices.
 
-* *What computer languages do I need to know?*
+* **What computer languages do I need to know?**
 
   Some experience with Java should be enough. As mentioned in the Recommended Background Section, those who don't know Java, but have some familiarity with other languages may want to take a Java tutorial prior to starting this course.
 
-* *Can students use programming language, other than Java, for the course?*
+* **Can students use programming language, other than Java, for the course?**
 
   Not really. The main programming language for Android is Java.
 
-* *What should I be reading to prepare for class?*
+* **What should I be reading to prepare for class?**
 
   There is no course textbook. If you want to get started early, dive into the [Android Developer's Website](http://developer.android.com/index.html)
 
-* *Do I need to buy an Android device?*
+* **Do I need to buy an Android device?**
 
   No. All the graded exercises will be done using the Android Emulator.
 
-* *What is a "trans-institution sequence of MOOCs?"*
+* **What is a "trans-institution sequence of MOOCs?"**
 
   This MOOC course and another course tentatively called [Pattern-Oriented Software Architectures for Concurrent and Networked Mobile Devices and Clouds](https://www.coursera.org/course/posa), taught by Professors Doug Schmidt and Jules White of Vanderbilt University have been designed to complement each other. In particular, some of the programming assignments and the course project for both courses will be coordinated. The focus of Vanderbilt MOOCs will be systems programming topics, such as server-side Android concurrency, background processing, networking, and computing cloud integration, and will be taught starting in late March 2014. Additional information on our trans-institutional MOOC sequence is available  [here](http://www.umdrightnow.umd.edu/news/umd-vanderbilt-team-new-wrinkle-moocs "UMD, Vanderbilt Team Up for a New Wrinkle in MOOCs") and  [here](http://news.vanderbilt.edu/2013/09/vu-maryland-mooc/ "Vanderbilt University and University of Maryland join forces to offer MOOC sequence on mobile app development").
 
-* *Is it necessary to take all the courses in the sequence?*
+* **Is it necessary to take all the courses in the sequence?**
 
   No. If you just want to take some of the courses in this sequence--or take them all in different order--you're certainly welcome to do so, and you'll still learn a lot. However, if you take all the courses in this sequence in the order presented you'll gain a deeper, end-to-end understanding of handheld systems, their applications and services, as well as their integration into the cloud.
 
-* *When will the course material be made available each week?*
+* **When will the course material be made available each week?**
 
   All the course material (e.g., video lectures, quizzes, short essays, programming assignments, etc.), for each week will be made available at 9am eastern time (2pm UTC/GMT). each Sunday of the course.
 
-* *How does this MOOC compare/contrast with courses at the University of Maryland?*
+* **How does this MOOC compare/contrast with courses at the University of Maryland?**
 
   This MOOC is heavily based on courses I teach at UMD, called CMSC436, Programming Handheld Systems. The course lecture material is similar, but the quizzes, programming assignments, and level of feedback for the UMD courses are more challenging, given that we have about twice the amount of time to work on it. Also, as the UMD course has many fewer students, there's significantly more personalized guidance from the professor and TAs that can't (yet) be replicated via a MOOC. This is one reason why it's important for students to take on some of the  role of the Instructor. When all of us work together, we all benefit.
 
-* *Will there be a Statement of Accomplishment for students who complete this class?*
+* **Will there be a Statement of Accomplishment for students who complete this class?**
 
   Yes. Students who successfully complete the quizzes and assignments in this class will receive a Statement of Accomplishment signed by the instructor.  There will be two levels of Statements of Accomplishment: Normal Track and Distinction Track. The difference between these two tracks is that the Distinction Track requires successful completion of the class project.
 
-* *What is the most effective way to learn material covered in the course?*
+* **What is the most effective way to learn material covered in the course?**
 
   I recommend watching the videos multiple times, looking for different levels of meaning in the diagrams and the examples. Likewise, I recommend reading outside sources of information. Naturally, participating in the online discussion forums (and ideally, a meetup group if one is available in your area) will help make the course material more engaging.
 
-* *Can students take this course if they have no prior experience with Android programming or programming with Java?*
+* **Can students take this course if they have no prior experience with Android programming or programming with Java?**
 
   This course assumes that students are comfortable programming in Java and have some experience programming Android apps. If you don't have any significant Java programming background, please look on the Internet for one of the many Java-related tutorials that are freely-available.
 
-* *Where Will you use Eclipse or Android Studio in this course?*
+* **Where Will you use Eclipse or Android Studio in this course?**
 
   All of my videos use Eclipse and Android Studio is still in a pre-release state. If you're using a non-Eclipse development environment, such as AndroidStudio, you may need to enlist the help of other students on the online discussion forum.
 
-* *Which web browsers are recommended?*
+* **Which web browsers are recommended?**
 
   Coursera recommends using the Chrome and Firefox browsers. There's also a [mobile app](http://help.coursera.org/customer/portal/articles/1364448-mobile-faq) for Coursera MOOC, as well.
 
-* *Where can students download the slides that are presented in the videos?*
+* **Where can students download the slides that are presented in the videos?**
 
   PDF versions of the slides will be available online as the videos are released.
