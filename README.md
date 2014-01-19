@@ -172,7 +172,7 @@ Some Frequently Asked Questions.
 
 * *Can students take this course if they have no prior experience with Android programming or programming with Java?*
 
-This course assumes that students are comfortable programming in Java and have some experience programming Android apps. If you don't have any significant Java programming background, please look on the Internet for one of the many Java-related tutorials that are freely-available.
+  This course assumes that students are comfortable programming in Java and have some experience programming Android apps. If you don't have any significant Java programming background, please look on the Internet for one of the many Java-related tutorials that are freely-available.
 
 * *Where Will you use Eclipse or Android Studio in this course?*
 
