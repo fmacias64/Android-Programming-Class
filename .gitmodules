@@ -1,0 +1,3 @@
+[submodule "in-class-examples"]
+	path = in-class-examples
+	url = https://github.com/aporter/coursera-android.git
