@@ -1,6 +1,7 @@
 package course.labs.activitylab;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,68 +21,45 @@ public class ActivityOne extends Activity {
 	private final static String TAG = "Lab-ActivityOne";
 	
 	// Lifecycle counters
+    private int mCreate = 0;
+    private int mStart = 0;
+    private int mResume = 0;
+    private int mRestart = 0;
 
-	// TODO:
-	// Create counter variables for onCreate(), onRestart(), onStart() and
-	// onResume(), called mCreate, etc.
-	// You will need to increment these variables' values when their
-	// corresponding lifecycle methods get called
+	TextView mTvCreate, mTvStart, mTvResume, mTvRestart;
 
-
-
-	// TODO: Create variables for each of the TextViews, called
-        // mTvCreate, etc. 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_one);
 		
-		// TODO: Assign the appropriate TextViews to the TextView variables
-		// Hint: Access the TextView by calling Activity's findViewById()
-		// textView1 = (TextView) findViewById(R.id.textView1);
+        mTvCreate = (TextView) findViewById(R.id.create);
+        mTvStart = (TextView) findViewById(R.id.start);
+        mTvResume = (TextView) findViewById(R.id.resume);
+        mTvRestart = (TextView) findViewById(R.id.restart);
 
-
-
-
-
-		Button launchActivityTwoButton = (Button) findViewById(R.id.bLaunchActivityTwo); 
+		Button launchActivityTwoButton = (Button) findViewById(R.id.bLaunchActivityTwo);
 		launchActivityTwoButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO:
-				// Launch Activity Two
-				// Hint: use Context's startActivity() method
-
-				// Create an intent stating which Activity you would like to start
-
-				
-				// Launch the Activity using the intent
-
-			
-			}
+                startActivity(new Intent(v.getContext(), ActivityTwo.class));
+            }
 		});
 		
 		// Check for previously saved state
 		if (savedInstanceState != null) {
-
-			// TODO:
-			// Restore value of counters from saved state
-			// Only need 4 lines of code, one for every count variable
-			
-		
+			mCreate = savedInstanceState.getInt("mCreate");
+			mStart = savedInstanceState.getInt("mStart");
+			mResume = savedInstanceState.getInt("mResume");
+			mRestart = savedInstanceState.getInt("mRestart");
 		}
 
 		// TODO: Emit LogCat message
 
 
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface via the displayCounts() method
-
-
-
+        mCreate++;
+        displayCounts();
 	}
 
 	// Lifecycle callback overrides
@@ -93,11 +71,8 @@ public class ActivityOne extends Activity {
 		// TODO: Emit LogCat message
 
 
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
-
-
+		mStart++;
+        displayCounts();
 	}
 
 	@Override
@@ -107,11 +82,8 @@ public class ActivityOne extends Activity {
 		// TODO: Emit LogCat message
 
 
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
-
-
+        mResume++;
+        displayCounts();
 	}
 
 	@Override
@@ -137,12 +109,8 @@ public class ActivityOne extends Activity {
 		// TODO: Emit LogCat message
 
 
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
-
-
-
+        mRestart++;
+        displayCounts();
 	}
 
 	@Override
@@ -156,15 +124,10 @@ public class ActivityOne extends Activity {
 
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
-		// TODO:
-		// Save state information with a collection of key-value pairs
-		// 4 lines of code, one for every count variable
-
-
-
-
-
-
+        savedInstanceState.putInt("mCreate", mCreate);
+        savedInstanceState.putInt("mStart", mStart);
+        savedInstanceState.putInt("mResume", mResume);
+        savedInstanceState.putInt("mRestart", mRestart);
 	}
 	
 	// Updates the displayed counters

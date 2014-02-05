@@ -19,33 +19,24 @@ public class ActivityTwo extends Activity {
 	private final static String TAG = "Lab-ActivityTwo";
 
 	// Lifecycle counters
+    private int mCreate = 0;
+    private int mStart = 0;
+    private int mResume = 0;
+    private int mRestart = 0;
 
-	// TODO:
-	// Create counter variables for onCreate(), onRestart(), onStart() and
-	// onResume(), called mCreate, etc.
-	// You will need to increment these variables' values when their
-	// corresponding lifecycle methods get called
-
-
-
-	// TODO: Create variables for each of the TextViews, called
-        // mTvCreate, etc. 
-
+    TextView mTvCreate, mTvStart, mTvResume, mTvRestart;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_two);
 
-		// TODO: Assign the appropriate TextViews to the TextView variables
-		// Hint: Access the TextView by calling Activity's findViewById()
-		// textView1 = (TextView) findViewById(R.id.textView1);
+        mTvCreate = (TextView) findViewById(R.id.create);
+        mTvStart = (TextView) findViewById(R.id.start);
+        mTvResume = (TextView) findViewById(R.id.resume);
+        mTvRestart = (TextView) findViewById(R.id.restart);
 
-
-
-
-
-		Button closeButton = (Button) findViewById(R.id.bClose); 
+		Button closeButton = (Button) findViewById(R.id.bClose);
 		closeButton.setOnClickListener(new OnClickListener() {
 
 			@Override
