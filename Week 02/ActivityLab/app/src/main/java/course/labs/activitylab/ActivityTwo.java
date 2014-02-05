@@ -19,10 +19,7 @@ public class ActivityTwo extends Activity {
 	private final static String TAG = "Lab-ActivityTwo";
 
 	// Lifecycle counters
-    private int mCreate = 0;
-    private int mStart = 0;
-    private int mResume = 0;
-    private int mRestart = 0;
+    private int mCreate, mStart, mResume, mRestart;
 
     TextView mTvCreate, mTvStart, mTvResume, mTvRestart;
 
@@ -53,117 +50,78 @@ public class ActivityTwo extends Activity {
 
 		// Check for previously saved state
 		if (savedInstanceState != null) {
+            mCreate = savedInstanceState.getInt(RESTART_KEY);
+            mStart = savedInstanceState.getInt(START_KEY);
+            mResume = savedInstanceState.getInt(RESUME_KEY);
+            mRestart = savedInstanceState.getInt(CREATE_KEY);
+        }
 
-			// TODO:
-			// Restore value of counters from saved state
-			// Only need 4 lines of code, one for every count variable
+        Log.i(TAG, "Activity one onCreate");
 
-
-
-		}
-
-		// TODO: Emit LogCat message
-
-
-
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface via the displayCounts() method
-
-
-
-
-	}
+        mCreate++;
+        displayCounts();
+    }
 
 	// Lifecycle callback methods overrides
 
 	@Override
 	public void onStart() {
-		super.onStart();
+        super.onStart();
 
-		// TODO: Emit LogCat message
+        Log.i(TAG, "Activity one onStart");
 
-
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
-
-
-
-	}
+        mStart++;
+        displayCounts();
+    }
 
 	@Override
 	public void onResume() {
-		super.onResume();
+        super.onResume();
 
-		// TODO: Emit LogCat message
+        Log.i(TAG, "Activity one onResume");
 
-
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
-
-
-
-
-	}
+        mResume++;
+        displayCounts();
+    }
 
 	@Override
 	public void onPause() {
-		super.onPause();
+        super.onPause();
 
-		// TODO: Emit LogCat message
-
-
-
-	}
+        Log.i(TAG, "Activity one onPause");
+    }
 
 	@Override
 	public void onStop() {
-		super.onStop();
+        super.onStop();
 
-		// TODO: Emit LogCat message
-
-
-
-	}
+        Log.i(TAG, "Activity two onStop");
+    }
 
 	@Override
 	public void onRestart() {
-		super.onRestart();
+        super.onRestart();
 
-		// TODO: Emit LogCat message
+        Log.i(TAG, "Activity two onResume");
 
-
-		// TODO:
-		// Update the appropriate count variable
-		// Update the user interface
-
-
-
-	}
+        mRestart++;
+        displayCounts();
+    }
 
 	@Override
 	public void onDestroy() {
-		super.onDestroy();
+        super.onDestroy();
 
-		// TODO: Emit LogCat message
-
-	}
+        Log.i(TAG, "Activity two onDestroy");
+    }
 
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
-
-		// TODO:
-		// Save counter state information with a collection of key-value pairs
-		// 4 lines of code, one for every count variable
-
-
-
-
-
-	
-	}
+        savedInstanceState.putInt(RESTART_KEY, mCreate);
+        savedInstanceState.putInt(START_KEY, mStart);
+        savedInstanceState.putInt(RESUME_KEY, mResume);
+        savedInstanceState.putInt(CREATE_KEY, mRestart);
+    }
 
 	// Updates the displayed counters
 	public void displayCounts() {
