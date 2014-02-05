@@ -52,7 +52,7 @@ public class ActivityOne extends Activity {
 			mRestart = savedInstanceState.getInt(CREATE_KEY);
 		}
 
-		Log.i(TAG, "Activity one onCreate");
+		Log.i(TAG, "Entered the onCreate() method");
 
         mCreate++;
         displayCounts();
@@ -64,7 +64,7 @@ public class ActivityOne extends Activity {
 	public void onStart() {
 		super.onStart();
 
-        Log.i(TAG, "Activity one onStart");
+        Log.i(TAG, "Entered the onStart() method");
 
 		mStart++;
         displayCounts();
@@ -74,7 +74,7 @@ public class ActivityOne extends Activity {
 	public void onResume() {
 		super.onResume();
 
-        Log.i(TAG, "Activity one onResume");
+        Log.i(TAG, "Entered the onResume() method");
 
         mResume++;
         displayCounts();
@@ -84,21 +84,21 @@ public class ActivityOne extends Activity {
 	public void onPause() {
 		super.onPause();
 
-        Log.i(TAG, "Activity one onPause");
+        Log.i(TAG, "Entered the onPause() method");
 	}
 
 	@Override
 	public void onStop() {
 		super.onStop();
 
-        Log.i(TAG, "Activity one onStop");
+        Log.i(TAG, "Entered the onStop() method");
 	}
 
 	@Override
 	public void onRestart() {
 		super.onRestart();
 
-        Log.i(TAG, "Activity one onResume");
+        Log.i(TAG, "Entered the onResume() method");
 
         mRestart++;
         displayCounts();
@@ -108,7 +108,7 @@ public class ActivityOne extends Activity {
 	public void onDestroy() {
 		super.onDestroy();
 
-        Log.i(TAG, "Activity one onDestroy");
+        Log.i(TAG, "Entered the onDestroy() method");
 	}
 
 	@Override
