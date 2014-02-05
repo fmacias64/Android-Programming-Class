@@ -49,10 +49,10 @@ public class ActivityOne extends Activity {
 		
 		// Check for previously saved state
 		if (savedInstanceState != null) {
-			mCreate = savedInstanceState.getInt("mCreate");
-			mStart = savedInstanceState.getInt("mStart");
-			mResume = savedInstanceState.getInt("mResume");
-			mRestart = savedInstanceState.getInt("mRestart");
+			mCreate = savedInstanceState.getInt(RESTART_KEY);
+			mStart = savedInstanceState.getInt(START_KEY);
+			mResume = savedInstanceState.getInt(RESUME_KEY);
+			mRestart = savedInstanceState.getInt(CREATE_KEY);
 		}
 
 		// TODO: Emit LogCat message
@@ -124,10 +124,10 @@ public class ActivityOne extends Activity {
 
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putInt("mCreate", mCreate);
-        savedInstanceState.putInt("mStart", mStart);
-        savedInstanceState.putInt("mResume", mResume);
-        savedInstanceState.putInt("mRestart", mRestart);
+        savedInstanceState.putInt(RESTART_KEY, mCreate);
+        savedInstanceState.putInt(START_KEY, mStart);
+        savedInstanceState.putInt(RESUME_KEY, mResume);
+        savedInstanceState.putInt(CREATE_KEY, mRestart);
 	}
 	
 	// Updates the displayed counters
