@@ -21,10 +21,7 @@ public class ActivityOne extends Activity {
 	private final static String TAG = "Lab-ActivityOne";
 	
 	// Lifecycle counters
-    private int mCreate = 0;
-    private int mStart = 0;
-    private int mResume = 0;
-    private int mRestart = 0;
+    private int mCreate, mStart, mResume, mRestart;
 
 	TextView mTvCreate, mTvStart, mTvResume, mTvRestart;
 
