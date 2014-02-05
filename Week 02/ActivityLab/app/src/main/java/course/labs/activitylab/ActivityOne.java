@@ -55,8 +55,7 @@ public class ActivityOne extends Activity {
 			mRestart = savedInstanceState.getInt(CREATE_KEY);
 		}
 
-		// TODO: Emit LogCat message
-
+		Log.i(TAG, "Activity one onCreate");
 
         mCreate++;
         displayCounts();
@@ -68,8 +67,7 @@ public class ActivityOne extends Activity {
 	public void onStart() {
 		super.onStart();
 
-		// TODO: Emit LogCat message
-
+        Log.i(TAG, "Activity one onStart");
 
 		mStart++;
         displayCounts();
@@ -79,8 +77,7 @@ public class ActivityOne extends Activity {
 	public void onResume() {
 		super.onResume();
 
-		// TODO: Emit LogCat message
-
+        Log.i(TAG, "Activity one onResume");
 
         mResume++;
         displayCounts();
@@ -90,24 +87,21 @@ public class ActivityOne extends Activity {
 	public void onPause() {
 		super.onPause();
 
-		// TODO: Emit LogCat message
-
+        Log.i(TAG, "Activity one onPause");
 	}
 
 	@Override
 	public void onStop() {
 		super.onStop();
 
-		// TODO: Emit LogCat message
-
+        Log.i(TAG, "Activity one onStop");
 	}
 
 	@Override
 	public void onRestart() {
 		super.onRestart();
 
-		// TODO: Emit LogCat message
-
+        Log.i(TAG, "Activity one onResume");
 
         mRestart++;
         displayCounts();
@@ -117,9 +111,7 @@ public class ActivityOne extends Activity {
 	public void onDestroy() {
 		super.onDestroy();
 
-		// TODO: Emit LogCat message
-
-
+        Log.i(TAG, "Activity one onDestroy");
 	}
 
 	@Override
