@@ -96,7 +96,7 @@ public class ActivityTwo extends Activity {
 	public void onRestart() {
         super.onRestart();
 
-        Log.i(TAG, "Entered the onResume() method");
+        Log.i(TAG, "Entered the onRestart() method");
 
         mRestart++;
         displayCounts();
