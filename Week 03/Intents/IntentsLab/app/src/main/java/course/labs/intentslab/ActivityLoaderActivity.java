@@ -75,19 +75,10 @@ public class ActivityLoaderActivity extends Activity {
 
 		Log.i(TAG, "Entered startImplicitActivation()");
 
-		// TODO - Create a base intent for viewing a URL 
-		// (HINT:  second parameter uses parse() from the Uri class)
-		
-		
-		// TODO - Create a chooser intent, for choosing which Activity
-		// will carry out the baseIntent. Store the Intent in the 
-		// chooserIntent variable below. HINT: using the Intent class' 
-		// createChooser())
-		
-		Intent chooserIntent = null;
+        Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
+		Intent chooserIntent = Intent.createChooser(webIntent, CHOOSER_TEXT);
 
 		Log.i(TAG,"Chooser Intent Action:" + chooserIntent.getAction());
-		// TODO - Start the chooser Activity, using the chooser intent
 		startActivity(chooserIntent);
 
 	}
