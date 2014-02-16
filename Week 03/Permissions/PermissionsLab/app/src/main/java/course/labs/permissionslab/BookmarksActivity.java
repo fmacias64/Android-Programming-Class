@@ -3,6 +3,7 @@ package course.labs.permissionslab;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Browser;
 import android.util.Log;
@@ -79,8 +80,7 @@ public class BookmarksActivity extends Activity {
 		Log.i(TAG, "Entered startGoToDangerousActivity()");
 
 		// TODO - Start the GoToDangerousActivity
-		
-
+		startActivity(new Intent(BookmarksActivity.this, GoToDangerousActivity.class));
 	}
 
 }
