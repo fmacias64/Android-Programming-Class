@@ -25,8 +25,10 @@ public class MainActivity extends Activity implements
 
             mFriendsFragment = new FriendsFragment();
 
-            //TODO 1 - add the FriendsFragment to the fragment_container
-
+            getFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.fragment_container, mFriendsFragment)
+                    .commit();
 
         } else {
 
@@ -56,14 +58,17 @@ public class MainActivity extends Activity implements
         // If there is no FeedFragment instance, then create one
 
         if (mFeedFragment == null)
-            mFeedFragment = new FeedFragment();
+        mFeedFragment = new FeedFragment();
 
         // If in single-pane mode, replace single visible Fragment
 
         if (!isInTwoPaneMode()) {
 
-            //TODO 2 - replace the fragment_container with the FeedFragment
-
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, mFeedFragment)
+                    .addToBackStack(null)
+                    .commit();
 
             // execute transaction now
             getFragmentManager().executePendingTransactions();
