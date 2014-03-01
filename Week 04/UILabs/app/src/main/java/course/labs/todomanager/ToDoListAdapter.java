@@ -98,8 +98,8 @@ public class ToDoListAdapter extends BaseAdapter {
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 log("Entered onCheckedChanged()");
-                buttonView.setChecked(isChecked);
-
+                ToDoItem.Status status = isChecked ? ToDoItem.Status.DONE : ToDoItem.Status.NOTDONE;
+                toDoItem.setStatus(status);
             }
         });
 
