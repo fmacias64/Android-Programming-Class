@@ -1,5 +1,5 @@
 package course.labs.notificationslab;
 
 public interface SelectionListener {
-	public void onItemSelected(int position);
+    public void onItemSelected(int position);
 }

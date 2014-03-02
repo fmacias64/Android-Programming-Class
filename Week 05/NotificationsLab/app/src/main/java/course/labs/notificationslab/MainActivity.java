@@ -22,258 +22,254 @@ import android.util.Log;
 
 public class MainActivity extends Activity implements SelectionListener {
 
-	public static final String TWEET_FILENAME = "tweets.txt";
-	public static final String[] FRIENDS = { "taylorswift13", "msrebeccablack",
-			"ladygaga" };
-	public static final String DATA_REFRESHED_ACTION = "course.labs.notificationslab.DATA_REFRESHED";
-	
-	private static final int NUM_FRIENDS = 3;
-	private static final String URL_LGAGA = "https://d396qusza40orc.cloudfront.net/android%2FLabs%2FUserNotifications%2Fladygaga.txt";
-	private static final String URL_RBLACK = "https://d396qusza40orc.cloudfront.net/android%2FLabs%2FUserNotifications%2Frebeccablack.txt";
-	private static final String URL_TSWIFT = "https://d396qusza40orc.cloudfront.net/android%2FLabs%2FUserNotifications%2Ftaylorswift.txt";
-	private static final String TAG = "Lab-Notifications";
-	private static final long TWO_MIN = 2 * 60 * 1000;
-	private static final int UNSELECTED = -1;
+    public static final String TWEET_FILENAME = "tweets.txt";
+    public static final String[] FRIENDS = {"taylorswift13", "msrebeccablack",
+            "ladygaga"};
+    public static final String DATA_REFRESHED_ACTION = "course.labs.notificationslab.DATA_REFRESHED";
 
-	private FragmentManager mFragmentManager;
-	private FriendsFragment mFriendsFragment;
-	private boolean mIsFresh;
-	private BroadcastReceiver mRefreshReceiver;
-	private int mFeedSelected = UNSELECTED;
-	private FeedFragment mFeedFragment;
-	private String[] mRawFeeds = new String[3];
-	private String[] mProcessedFeeds = new String[3];
+    private static final int NUM_FRIENDS = 3;
+    private static final String URL_LGAGA = "https://d396qusza40orc.cloudfront.net/android%2FLabs%2FUserNotifications%2Fladygaga.txt";
+    private static final String URL_RBLACK = "https://d396qusza40orc.cloudfront.net/android%2FLabs%2FUserNotifications%2Frebeccablack.txt";
+    private static final String URL_TSWIFT = "https://d396qusza40orc.cloudfront.net/android%2FLabs%2FUserNotifications%2Ftaylorswift.txt";
+    private static final String TAG = "Lab-Notifications";
+    private static final long TWO_MIN = 2 * 60 * 1000;
+    private static final int UNSELECTED = -1;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+    private FragmentManager mFragmentManager;
+    private FriendsFragment mFriendsFragment;
+    private boolean mIsFresh;
+    private BroadcastReceiver mRefreshReceiver;
+    private int mFeedSelected = UNSELECTED;
+    private FeedFragment mFeedFragment;
+    private String[] mRawFeeds = new String[3];
+    private String[] mProcessedFeeds = new String[3];
 
-		mFragmentManager = getFragmentManager();
-		addFriendsFragment();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-		// The feed is fresh if it was downloaded less than 2 minutes ago
-		mIsFresh = (System.currentTimeMillis() - getFileStreamPath(
-				TWEET_FILENAME).lastModified()) < TWO_MIN;
+        mFragmentManager = getFragmentManager();
+        addFriendsFragment();
 
-		ensureData();
+        // The feed is fresh if it was downloaded less than 2 minutes ago
+        mIsFresh = (System.currentTimeMillis() - getFileStreamPath(
+                TWEET_FILENAME).lastModified()) < TWO_MIN;
 
-	}
+        ensureData();
 
-	// Add Friends Fragment to Activity
-	private void addFriendsFragment() {
+    }
 
-		mFriendsFragment = new FriendsFragment();
-		mFriendsFragment.setArguments(getIntent().getExtras());
+    // Add Friends Fragment to Activity
+    private void addFriendsFragment() {
 
-		FragmentTransaction transaction = mFragmentManager.beginTransaction();
-		transaction.add(R.id.fragment_container, mFriendsFragment);
+        mFriendsFragment = new FriendsFragment();
+        mFriendsFragment.setArguments(getIntent().getExtras());
 
-		transaction.commit();
-	}
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        transaction.add(R.id.fragment_container, mFriendsFragment);
 
-	// If stored Tweets are not fresh, reload them from network
-	// Otherwise, load them from file
-	private void ensureData() {
+        transaction.commit();
+    }
 
-		log("In ensureData(), mIsFresh:" + mIsFresh);
+    // If stored Tweets are not fresh, reload them from network
+    // Otherwise, load them from file
+    private void ensureData() {
 
-		if (!mIsFresh) {
+        log("In ensureData(), mIsFresh:" + mIsFresh);
 
-			// TODO:
-			// Show a Toast Notification to inform user that 
-			// the app is "Downloading Tweets from Network"
-			log ("Issuing Toast Message");
+        if (!mIsFresh) {
 
-			
-			
-			// TODO:
-			// Start new AsyncTask to download Tweets from network
+            // TODO:
+            // Show a Toast Notification to inform user that
+            // the app is "Downloading Tweets from Network"
+            log("Issuing Toast Message");
 
 
+            // TODO:
+            // Start new AsyncTask to download Tweets from network
 
-			
-			// Set up a BroadcastReceiver to receive an Intent when download
-			// finishes. 
-			mRefreshReceiver = new BroadcastReceiver() {
-				@Override
-				public void onReceive(Context context, Intent intent) {
 
-					log("BroadcastIntent received in MainActivity");
+            // Set up a BroadcastReceiver to receive an Intent when download
+            // finishes.
+            mRefreshReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
 
-					// TODO:				
-					// Check to make sure this is an ordered broadcast
-					// Let sender know that the Intent was received
-					// by setting result code to RESULT_OK
+                    log("BroadcastIntent received in MainActivity");
 
+                    // TODO:
+                    // Check to make sure this is an ordered broadcast
+                    // Let sender know that the Intent was received
+                    // by setting result code to RESULT_OK
 
-				}
-			};
 
-		} else {
+                }
+            };
 
-			loadTweetsFromFile();
-			parseJSON();
-			updateFeed();
+        } else {
 
-		}
-	}
+            loadTweetsFromFile();
+            parseJSON();
+            updateFeed();
 
-	// Called when new Tweets have been downloaded 
-	public void setRefreshed(String[] feeds) {
+        }
+    }
 
-		mRawFeeds[0] = feeds[0];
-		mRawFeeds[1] = feeds[1];
-		mRawFeeds[2] = feeds[2];
+    // Called when new Tweets have been downloaded
+    public void setRefreshed(String[] feeds) {
 
-		parseJSON();
-		updateFeed();
-		mIsFresh = true;
+        mRawFeeds[0] = feeds[0];
+        mRawFeeds[1] = feeds[1];
+        mRawFeeds[2] = feeds[2];
 
-	};
+        parseJSON();
+        updateFeed();
+        mIsFresh = true;
 
-	// Called when a Friend is clicked on
-	@Override
-	public void onItemSelected(int position) {
+    }
 
-		mFeedSelected = position;
-		mFeedFragment = addFeedFragment();
+    ;
 
-		if (mIsFresh) {
-			updateFeed();
-		}
-	}
+    // Called when a Friend is clicked on
+    @Override
+    public void onItemSelected(int position) {
 
-	// Calls FeedFragement.update, passing in the 
-	// the tweets for the currently selected friend
- 
-	void updateFeed() {
+        mFeedSelected = position;
+        mFeedFragment = addFeedFragment();
 
-		if (null != mFeedFragment)
+        if (mIsFresh) {
+            updateFeed();
+        }
+    }
 
-			mFeedFragment.update(mProcessedFeeds[mFeedSelected]);
+    // Calls FeedFragement.update, passing in the
+    // the tweets for the currently selected friend
 
-	}
+    void updateFeed() {
 
-	// Add FeedFragment to Activity
-	private FeedFragment addFeedFragment() {
-		FeedFragment feedFragment;
-		feedFragment = new FeedFragment();
+        if (null != mFeedFragment)
 
-		FragmentTransaction transaction = mFragmentManager.beginTransaction();
+            mFeedFragment.update(mProcessedFeeds[mFeedSelected]);
 
-		transaction.replace(R.id.fragment_container, feedFragment);
-		transaction.addToBackStack(null);
+    }
 
-		transaction.commit();
-		mFragmentManager.executePendingTransactions();
-		return feedFragment;
+    // Add FeedFragment to Activity
+    private FeedFragment addFeedFragment() {
+        FeedFragment feedFragment;
+        feedFragment = new FeedFragment();
 
-	}
+        FragmentTransaction transaction = mFragmentManager.beginTransaction();
 
-	// Register the BroadcastReceiver
-	@Override
-	protected void onResume() {
-		super.onResume();
+        transaction.replace(R.id.fragment_container, feedFragment);
+        transaction.addToBackStack(null);
 
-		// TODO:
-		// Register the BroadcastReceiver to receive a 
-		// DATA_REFRESHED_ACTION broadcast
+        transaction.commit();
+        mFragmentManager.executePendingTransactions();
+        return feedFragment;
 
+    }
 
-		
-	}
+    // Register the BroadcastReceiver
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-	@Override
-	protected void onPause() {
+        // TODO:
+        // Register the BroadcastReceiver to receive a
+        // DATA_REFRESHED_ACTION broadcast
 
-		// TODO:
-		// Unregister the BroadcastReceiver
 
+    }
 
-		
-		
-		super.onPause();
+    @Override
+    protected void onPause() {
 
-	}
+        // TODO:
+        // Unregister the BroadcastReceiver
 
-	// Convert raw Tweet data (in JSON format) into text for display
 
-	public void parseJSON() {
+        super.onPause();
 
-		JSONArray[] JSONFeeds = new JSONArray[NUM_FRIENDS];
+    }
 
-		for (int i = 0; i < NUM_FRIENDS; i++) {
-			try {
-				JSONFeeds[i] = new JSONArray(mRawFeeds[i]);
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
+    // Convert raw Tweet data (in JSON format) into text for display
 
-			String name = "";
-			String tweet = "";
+    public void parseJSON() {
 
-			JSONArray tmp = JSONFeeds[i];
+        JSONArray[] JSONFeeds = new JSONArray[NUM_FRIENDS];
 
-			// string buffer for twitter feeds
-			StringBuffer tweetRec = new StringBuffer("");
+        for (int i = 0; i < NUM_FRIENDS; i++) {
+            try {
+                JSONFeeds[i] = new JSONArray(mRawFeeds[i]);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-			for (int j = 0; j < tmp.length(); j++) {
-				try {
-					tweet = tmp.getJSONObject(j).getString("text");
-					JSONObject user = (JSONObject) tmp.getJSONObject(j).get(
-							"user");
-					name = user.getString("name");
+            String name = "";
+            String tweet = "";
 
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
+            JSONArray tmp = JSONFeeds[i];
 
-				tweetRec.append(name + " - " + tweet + "\n\n");
-			}
+            // string buffer for twitter feeds
+            StringBuffer tweetRec = new StringBuffer("");
 
-			mProcessedFeeds[i] = tweetRec.toString();
+            for (int j = 0; j < tmp.length(); j++) {
+                try {
+                    tweet = tmp.getJSONObject(j).getString("text");
+                    JSONObject user = (JSONObject) tmp.getJSONObject(j).get(
+                            "user");
+                    name = user.getString("name");
 
-		}
-	}
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
-	// Retrieve feeds text from a file
-	// Store them in mRawTextFeed[]
+                tweetRec.append(name + " - " + tweet + "\n\n");
+            }
 
-	private void loadTweetsFromFile() {
-		BufferedReader reader = null;
+            mProcessedFeeds[i] = tweetRec.toString();
 
-		try {
-			FileInputStream fis = openFileInput(TWEET_FILENAME);
-			reader = new BufferedReader(new InputStreamReader(fis));
-			String s = null;
-			int i = 0;
-			while (null != (s = reader.readLine()) && i < NUM_FRIENDS) {
-				mRawFeeds[i] = s;
-				i++;
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (null != reader) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
+        }
+    }
 
-	// Simplified log output method
-	private void log(String msg) {
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Log.i(TAG, msg);
-	}
+    // Retrieve feeds text from a file
+    // Store them in mRawTextFeed[]
+
+    private void loadTweetsFromFile() {
+        BufferedReader reader = null;
+
+        try {
+            FileInputStream fis = openFileInput(TWEET_FILENAME);
+            reader = new BufferedReader(new InputStreamReader(fis));
+            String s = null;
+            int i = 0;
+            while (null != (s = reader.readLine()) && i < NUM_FRIENDS) {
+                mRawFeeds[i] = s;
+                i++;
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (null != reader) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Simplified log output method
+    private void log(String msg) {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.i(TAG, msg);
+    }
 }
