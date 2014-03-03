@@ -95,7 +95,7 @@ public class MainActivity extends Activity implements SelectionListener {
 
                     log("BroadcastIntent received in MainActivity");
 
-                    if(mRefreshReceiver.isOrderedBroadcast()) {
+                    if (mRefreshReceiver.isOrderedBroadcast()) {
                         mRefreshReceiver.setResultCode(RESULT_OK);
                     }
                 }
@@ -178,7 +178,9 @@ public class MainActivity extends Activity implements SelectionListener {
     @Override
     protected void onPause() {
 
-        unregisterReceiver(mRefreshReceiver);
+        if (mRefreshReceiver != null) {
+            unregisterReceiver(mRefreshReceiver);
+        }
 
         super.onPause();
 
