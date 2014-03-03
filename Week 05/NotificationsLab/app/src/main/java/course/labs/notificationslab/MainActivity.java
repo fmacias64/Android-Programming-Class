@@ -95,12 +95,9 @@ public class MainActivity extends Activity implements SelectionListener {
 
                     log("BroadcastIntent received in MainActivity");
 
-                    // TODO:
-                    // Check to make sure this is an ordered broadcast
-                    // Let sender know that the Intent was received
-                    // by setting result code to RESULT_OK
-
-
+                    if(mRefreshReceiver.isOrderedBroadcast()) {
+                        mRefreshReceiver.setResultCode(RESULT_OK);
+                    }
                 }
             };
 
@@ -172,19 +169,16 @@ public class MainActivity extends Activity implements SelectionListener {
     protected void onResume() {
         super.onResume();
 
-        // TODO:
-        // Register the BroadcastReceiver to receive a
-        // DATA_REFRESHED_ACTION broadcast
-
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(DATA_REFRESHED_ACTION);
+        registerReceiver(mRefreshReceiver, intentFilter);
 
     }
 
     @Override
     protected void onPause() {
 
-        // TODO:
-        // Unregister the BroadcastReceiver
-
+        unregisterReceiver(mRefreshReceiver);
 
         super.onPause();
 
